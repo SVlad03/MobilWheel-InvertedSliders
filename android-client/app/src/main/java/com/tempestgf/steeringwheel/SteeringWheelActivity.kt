@@ -685,7 +685,7 @@ class SteeringWheelActivity : AppCompatActivity(), SensorEventListener {
     }
 
     private fun updateAccelerate(deltaY: Float) {
-        val progress = (deltaY * accelerationSensitivity).toInt().coerceIn(0, 100)
+        val progress = ((-deltaY) * accelerationSensitivity).toInt().coerceIn(0, 100)
         val lp = accelerateIndicator.layoutParams
         lp.height = (resources.displayMetrics.heightPixels * (progress / 100.0)).toInt()
         accelerateIndicator.layoutParams = lp
